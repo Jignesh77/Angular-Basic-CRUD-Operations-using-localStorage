@@ -7,6 +7,7 @@ import { EditUserComponent } from '../user/edit-user/edit-user.component';
 import { NavigationComponent } from '../navigation/navigation.component';
 import { NewUserComponent } from '../user/new-user/new-user.component';
 import { AuthGuard } from '../auth/auth.guard';
+import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: NavigationComponent,
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
       path:'',component:EditUserComponent
     }],canActivate:[AuthGuard]
   },
-  { path: '', redirectTo: '/login', pathMatch: 'full'}
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
+  { path: '**',component:PageNotFoundComponent}
 ]
 
 @NgModule({

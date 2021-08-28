@@ -11,13 +11,15 @@ import { UsersService } from './services/users.service';
 import { NavigationComponent } from './navigation/navigation.component';
 import { NewUserComponent } from './user/new-user/new-user.component';
 import { AuthGuard } from './auth/auth.guard';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     NavigationComponent,
-    NewUserComponent
+    NewUserComponent,
+    PageNotFoundComponent
     
   ],
   imports: [

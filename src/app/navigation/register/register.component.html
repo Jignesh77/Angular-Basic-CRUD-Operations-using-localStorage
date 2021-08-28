@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-12">
+          <form [formGroup]="regForm" (ngSubmit)="register(regForm.value)">
+
+              <div class="form-group">
+                  <label for="username" class="fa fa-user"></label>
+                  <input type="text" placeholder="UserName" formControlName="username">
+                  <span class="text-danger" *ngIf="regForm.controls.username.errors && regForm.controls.username.touched">
+                      <br>UserName is Required
+                  </span>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="fa fa-envelope"></label>
+                <input type="email" placeholder="Email Address" formControlName="email">
+                <span class="text-danger" *ngIf="regForm.controls.email.errors && regForm.controls.email.touched">
+                    <br>Invalid Email Address
+                </span>
+            </div>        
+
+            <div class="form-group">
+              <label for="password" class="fa fa-lock"></label>
+              <input type="password" placeholder="Password" id="password" formControlName="password">
+                 <ng-container>
+                    <br><span [ngClass]="regForm.controls.password.hasError('required') || regForm.controls.password.hasError('minlength') ? 'text-danger' : 'text-success'">Must be at least 8 characters!</span>
+                    <br><span [ngClass]="regForm.controls.password.hasError('required') || regForm.controls.password.hasError('hasNumber') ? 'text-danger' : 'text-success'">Must contain at least 1 number!</span>
+                    <br><span [ngClass]="regForm.controls.password.hasError('required') || regForm.controls.password.hasError('hasCapitalCase') ? 'text-danger' : 'text-success'">Must contain at least 1 in Capital Case!</span>
+                    <br><span [ngClass]="regForm.controls.password.hasError('required') || regForm.controls.password.hasError('hasSmallCase') ? 'text-danger' : 'text-success'">Must contain at least 1 Letter in Small Case!</span>
+                    <br><span [ngClass]="regForm.controls.password.hasError('required') || regForm.controls.password.hasError('hasSpecialCharacters') ? 'text-danger' : 'text-success'">Must contain at least 1 Special Character!</span>
+                  </ng-container>
+          </div> 
+
+              <div class="form-group">
+                  <label for="confirmpassword" class="fa fa-lock"></label>
+                  <input type="password" placeholder="Confirm Password" formControlName="confirmpassword">
+                  <br><span class="text-danger" *ngIf="regForm.controls.confirmpassword.touched && regForm.controls.confirmpassword.hasError('required')">
+                    Password is Required!
+                  </span>
+                  <br><span class="text-danger" *ngIf="regForm.controls.confirmpassword.touched && regForm.controls.confirmpassword.hasError('NoPassswordMatch')">
+                    Password do not match
+                  </span>
+              </div>
+
+              <div class="text-center">
+                  <button id="submitButton" type="submit" class="btn btn-primary" [disabled]="!regForm.valid">
+                      Register
+                  </button>
+              </div>
+
+              <div class="text-success" *ngIf="successMessage">
+                  {{regForm.value.username}} User Name is {{successMessage}}
+              </div>
+              <div class="text-danger" *ngIf="errorMessage">
+                {{regForm.value.username}} User Name Or {{regForm.value.email}} {{errorMessage}}
+            </div>
+          </form>
+      </div>
+  </div>
+</div>

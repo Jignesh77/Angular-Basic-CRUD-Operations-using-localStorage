@@ -1,0 +1,27 @@
+input{
+    border:none;
+    background-color: rgba(255,255,255,0);
+    border: 1px solid lightgrey;
+    border-radius: 7px;
+    size:3px;
+    margin-left: 10px;
+    width: 85%;
+}
+
+label{
+    color: grey;
+}
+.form-group{
+    margin-top:30px;
+}
+form{
+    padding:12px;
+}
+
+#submitButton{
+    margin: 25px;
+    width: 40%;
+}
+span{
+    margin-left: 10px;
+}

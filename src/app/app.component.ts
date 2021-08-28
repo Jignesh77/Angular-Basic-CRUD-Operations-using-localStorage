@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'myApp';
+  constructor(){
+    // localStorage.removeItem('token');
+  }
+
+  // loggedIn(){
+  //   console.log('token : ',localStorage.getItem('token'))
+  //   return localStorage.getItem('token');
+  // }
 }

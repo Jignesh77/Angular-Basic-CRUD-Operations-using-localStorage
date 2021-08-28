@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-12">
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+              <div class="form-group">
+                  <label for="username" class='fa fa-envelope'></label>
+                  <input type="text" placeholder="UserName" formControlName="username">
+                  <ng-container>
+                      <br><span class="text-danger" *ngIf="loginForm.controls.username.errors && loginForm.controls.username.touched">Invalid User Name</span>
+                    </ng-container>
+              </div>
+
+              <div class="form-group">
+                  <label for="password" class="fa fa-lock"></label>
+                  <input type="password" placeholder="Password" formControlName="password">
+                  <ng-container>
+                    <br><span [ngClass]="loginForm.controls.password.hasError('required') || loginForm.controls.password.hasError('minlength') ? 'text-danger' : 'text-success'">Must be at least 8 characters!</span>
+                    <br><span [ngClass]="loginForm.controls.password.hasError('required') || loginForm.controls.password.hasError('hasNumber') ? 'text-danger' : 'text-success'">Must contain at least 1 number!</span>
+                    <br><span [ngClass]="loginForm.controls.password.hasError('required') || loginForm.controls.password.hasError('hasCapitalCase') ? 'text-danger' : 'text-success'">Must contain at least 1 in Capital Case!</span>
+                    <br><span [ngClass]="loginForm.controls.password.hasError('required') || loginForm.controls.password.hasError('hasSmallCase') ? 'text-danger' : 'text-success'">Must contain at least 1 Letter in Small Case!</span>
+                    <br><span [ngClass]="loginForm.controls.password.hasError('required') || loginForm.controls.password.hasError('hasSpecialCharacters') ? 'text-danger' : 'text-success'">Must contain at least 1 Special Character!</span>
+                  </ng-container>
+              </div>
+
+              <div class="text-center">
+                  <button id="submitButton" type="submit" class="btn btn-primary" >Login</button>
+              </div>
+              <div class="text-center text-success" *ngIf="successMessage">{{successMessage}}</div>
+
+          </form>
+      </div>
+  </div>
+</div>

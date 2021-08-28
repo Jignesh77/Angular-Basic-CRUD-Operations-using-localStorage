@@ -1,0 +1,11 @@
+#appContainer{
+    height: 100%;
+    width: 100%;
+  }
+
+#cardStyle{
+    box-shadow: 5px 3px 10px 5px gray;
+}
+.active{
+    background-color: lightgray;
+}

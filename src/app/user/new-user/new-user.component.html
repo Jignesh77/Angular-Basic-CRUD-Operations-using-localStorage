@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-12">
+          <form [formGroup]="newRegForm" (ngSubmit)="register(newRegForm.value)">
+
+            <div class="row g-3">
+              <label for="firstname" class="col-sm-2 col-form-label">FirstName*</label>
+              <div class="col-md-4">
+                <input type="text" class="form-control" id="firstname" formControlName="firstname">
+                <span class="text-danger" *ngIf="newRegForm.controls.firstname.errors && newRegForm.controls.firstname.touched">
+                 First Name is required..!
+              </span>
+              </div>
+              
+              <label for="lastname" class="col-sm-2 col-form-label">LastName*</label>
+              <div class="col-md-4">
+                <input type="text" class="form-control" id="lastname" formControlName="lastname">
+                <span class="text-danger" *ngIf="newRegForm.controls.lastname.errors && newRegForm.controls.lastname.touched">
+                  Last Name is required..!
+              </span>
+              </div>
+            </div>
+            <div class="row g-3">
+              <label for="mob" class="col-sm-2 col-form-label">Mobile No.*</label>
+              <div class="col-md-4">
+                <input type="text" class="form-control" id="mob" formControlName="mob">
+                <span class="text-danger" *ngIf="newRegForm.controls.mob.errors && newRegForm.controls.mob.touched">
+                  Invalid Mobile Number
+              </span>
+              </div>
+              <label for="email" class="col-sm-2 col-form-label">Email*</label>
+              <div class="col-md-4">
+                <input type="email" class="form-control" id="email" formControlName="email">
+                <span class="text-danger" *ngIf="newRegForm.controls.email.errors && newRegForm.controls.email.touched">
+                  Invalid Email Address
+              </span>
+              </div>
+            </div>
+            <div class="row g-3">
+              <label for="dob" class="col-sm-2 col-form-label">DOB*</label>
+              <div class="col-md-4">
+                <input type="text" class="form-control" id="dob" formControlName="dob">
+                <span class="text-danger" *ngIf="newRegForm.controls.dob.errors && newRegForm.controls.dob.touched">
+                  Date of Birth is required..! 
+              </span>
+              </div>
+              <label for="qualification" class="col-sm-2 col-form-label">Qualification*</label>
+              <div class="col-md-4">
+                <input type="text" class="form-control" id="qualification" formControlName="qualification">
+                <span class="text-danger" *ngIf="newRegForm.controls.qualification.errors && newRegForm.controls.qualification.touched">
+                  Qualification is required..!
+              </span>
+              </div>
+            </div>
+              <div class="text-center" style="margin-top: 45px;">
+                  <button id="submitButton" type="submit" class="btn btn-primary" [disabled]="!newRegForm.valid">
+                     {{userToEdit ? 'Update': 'Submit'}}
+                  </button>
+              </div>
+
+             <div class="text-success" *ngIf="successMessage && !errorMessage">
+                {{successMessage}}
+              </div>
+              <div class="text-danger" *ngIf="errorMessage && !successMessage">
+                 {{errorMessage}}
+            </div>
+          </form>
+      </div>
+  </div>
+</div>
